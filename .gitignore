@@ -3,6 +3,9 @@ pelicanconf.py
 local_settings.py
 output
 
+#Emacs backup file
+.*~
+
 #Python
 *.py[cod]
 
