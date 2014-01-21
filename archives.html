@@ -1,113 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>An</title>
-        <!-- Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet' type='text/css'>
-        
-        <!-- CSS -->
-        <link rel="stylesheet" href="http://www.dephiros.com/theme/css/main.css" type="text/css" />
-        <link rel="stylesheet" href="http://www.dephiros.com/theme/css/pygments.css" type="text/css" />
-        <link rel="stylesheet" href="http://www.dephiros.com/theme/css/font-awesome.css" type="text/css" />
         <meta charset="utf-8" />
-      
-        <link href="http://www.dephiros.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="An RSS Feed" />
+        <title>An</title>
+        <link rel="stylesheet" href="http://www.dephiros.com/theme/css/main.css" />
+        <link href="http://www.dephiros.com/feeds\all.atom.xml" type="application/atom+xml" rel="alternate" title="An Atom Feed" />
 
-        <!-- Javascript-->
-        <script async src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-        <script async type="text/javascript"> 
-        $(function() {
-            function invisibleMenu() {
-                var now = 0;
-                var pixels = 300;
-                var opacity = -1;
-
-                var move = function() {
-                    now = $(window).scrollTop();
-                    if (now > pixels && opacity !== 0)
-                        opacity = 0;
-                    else if (now < pixels){
-                        // Depends on the position not if scrolls down or up
-                        opacity = (1 - now/pixels);
-                    }
-                    $("div.navigation").css({"opacity": opacity});
-                }
-                $(window).scroll(move);
-                move();
-            }
-            invisibleMenu();
-          });
-          </script> 
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 </head>
 
 <body id="index" class="home">
-     <div class="navigation">
-        <ol class="nav">
-          <li><a href="http://www.dephiros.com">Blog</a> </li>
-          <li class="current"><a href="http://www.dephiros.com/archives.html">Archive</a></li>
-          <li><a href="http://www.dephiros.com/tags.html">Tags</a> </li>
-          <li><a href="http://www.dephiros.com/feeds/all.rss.xml">RSS</a> </li>
-        </ol>
-      </div>
+<a href="http://github.com/dephiros">
+<img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+</a>
         <header id="banner" class="body">
-                <div class="banner"><a href="http://www.dephiros.com">An <strong></strong></a></div>
+                <h1><a href="http://www.dephiros.com/">An </a></h1>
+                <nav><ul>
+                    <li><a href="http://www.dephiros.com/category/blog.html">Blog</a></li>
+                </ul></nav>
         </header><!-- /#banner -->
-        <nav id="menu"><ul>
-        </ul></nav><!-- /#menu -->
-        <div class="box">
-<h2>Archives:</h2>
+<section id="content" class="body">
+<h1>Archives for An</h1>
 
-<table class="archives">
-    <tr>
-        <td>Tue 21 January 2014</td>
-        <td><a href="http://www.dephiros.com/posts/2014/01/hello-world/">hello world</a></td>
-    </tr>
-</table>
-            <hr/>
-            <footer id="contentinfo" class="footer">
-                <div>
-                    <a href="http://www.dephiros.com">An Nguyen</a> (2012)
-                </div>
-                <div>
-                    This work is licensed under <a rel="license" href="http://opensource.org/licenses/bsd-3-clause">3 clause BSD</a>. Source code available on <a rel="source code" href="https://github.com/slok/blog">Github</a>
-                </div>
-                <div>
-                    powered by <a href="http://getpelican.com/">Pelican</a>
-                    and <a href="http://python.org">Python</a>. 
-                    <a href="http://github.com/slok/iris">Theme</a> by <a href="http://xlarrakoetxea.org">Xabier Larrakoetxea</a> based on <a href="http://flask.pocoo.org/">Flask</a> theme
-                </div>
-                <div>
-                    Social icons (font awesome) by <a href="http://fortawesome.github.com/Font-Awesome/"> fort awesome</a>.
-                    <a href="http://www.google.com/webfonts/specimen/The+Girl+Next+Door">Title</a>, <a href="http://www.google.com/webfonts/specimen/Marcellus">headers</a> and <a href="http://www.google.com/webfonts/specimen/Inconsolata">source code</a> fonts by google fonts
-                </div>
+<dl>
+    <dt>Tue 21 January 2014</dt>
+    <dd><a href="http://www.dephiros.com/posts/2014/01/hello-world/">hello world</a></dd>
+</dl>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://YYYYYYYYYYY.ZZZ">XXXXX XXXX</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
                 <div class="social">
-                        <a href="http://twitter.com/XXXXXX"><i class="icon-twitter"></i>  </a>
-                        <a href="http://www.linkedin.com/in/XXXXXXX"><i class="icon-linkedin"></i>  </a>
-                        <a href="http://github.com/dephiros"><i class="icon-github"></i>  </a>
-                        <a href="mailto:dephiros@gmail.com"><i class="icon-envelope"></i> </a>
-                </div>
-            </footer><!-- /#contentinfo -->
-        </div>
-        <!--Add statistycs-->
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://www.dephiros.com/feeds\all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="http://twitter.com/XXXXXX">twitter</a></li>
+                            <li><a href="http://www.linkedin.com/in/XXXXXXX">linkedin</a></li>
+                            <li><a href="http://github.com/dephiros">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
 
 <script type="text/javascript">
-  var GoSquared = {};
-  GoSquared.acct = "XXX-YYYYYY-X";
-  (function(w){
-    function gs(){
-      w._gstc_lt = +new Date;
-      var d = document, g = d.createElement("script");
-      g.type = "text/javascript";
-      g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
-      var s = d.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(g, s);
-    }
-    w.addEventListener ?
-      w.addEventListener("load", gs, false) :
-      w.attachEvent("onload", gs);
-  })(window);
+    var disqus_shortname = 'XXXXXXXXXX';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
 </script>
 </body>
 </html>
