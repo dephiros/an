@@ -27,7 +27,7 @@ Spring 2008-Spring 2009
 
 __[Cellular Traction for Quantification on Micropost Array Gradients](https://github.com/dephiros/micropost-array)__
 
-Supervisors: Prof. Liwei Lin, Dr. Ryan Sochol - University of California, Berkeley
+[Supervisors: Prof. Liwei Lin, Dr. Ryan Sochol - University of California, Berkeley](http://m3b.me.berkeley.edu)
 
 •	Program with ImageJ and MS Excel VBA to process data and create graphical presentations of micropost movement.
 
