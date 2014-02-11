@@ -40,7 +40,15 @@ __[Cellular Traction for Quantification on Micropost Array Gradients](https://gi
 
 •	Setting up small home Linux server
 
+•	Build Linux from Scratch
+
 •	[Simple text-based web browser in C](https://github.com/dephiros/text-browser)
+
+•	Quadtree spacial database in Java
+
+•	Data link protocol simulation in C
+
+•	[Send file reliably with TCP/UDP sockets in C](https://github.com/dephiros/udp-reliable-file-send)
 
 •	Simple computer design using Logicworks
 
