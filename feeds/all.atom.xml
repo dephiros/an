@@ -1,5 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>An</title><link href="http://www.dephiros.com/" rel="alternate"></link><link href="http://www.dephiros.com/feeds%5Call.atom.xml" rel="self"></link><id>http://www.dephiros.com/</id><updated>2014-01-21T00:00:00-08:00</updated><entry><title>An Nguyen</title><link href="http://www.dephiros.com/posts/2014/01/an-nguyen/" rel="alternate"></link><updated>2014-01-21T00:00:00-08:00</updated><author><name>An Nguyen</name></author><id>tag:www.dephiros.com,2014-01-21:posts/2014/01/an-nguyen/</id><summary type="html">&lt;h2&gt;Education&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>An</title><link href="http://www.dephiros.com/" rel="alternate"></link><link href="http://www.dephiros.com/feeds/all.atom.xml" rel="self"></link><id>http://www.dephiros.com/</id><updated>2014-03-17T00:00:00-07:00</updated><entry><title>Arch Linux Installation on Vaio Pro 13</title><link href="http://www.dephiros.com/posts/2014/03/arch-linux-installation-on-vaio-pro-13/" rel="alternate"></link><updated>2014-03-17T00:00:00-07:00</updated><author><name>An Nguyen</name></author><id>tag:www.dephiros.com,2014-03-17:posts/2014/03/arch-linux-installation-on-vaio-pro-13/</id><summary type="html">&lt;h1&gt;(SVP1321BPXB) -- In Progress&lt;/h1&gt;
+&lt;p&gt;I am very much a newbie in Arch and have only some experience with Linux. This guide only serves as a log so I can repeat later if needed. If it helps anybody then that's even more awesome.&lt;/p&gt;
+&lt;h2&gt;System&lt;/h2&gt;
+&lt;h3&gt;Systemd user&lt;/h3&gt;
+&lt;p&gt;Follow the instruction &lt;a href="https://wiki.archlinux.org/index.php/Systemd/User#Using_.2Fusr.2Flib.2Fsystemd.2Fsystemd_--user_To_Manage_Your_Session"&gt;here&lt;/a&gt; to set up systemd for user that is later needed to start dropbox daemon when login to certain user.&lt;/p&gt;
+&lt;h4&gt;Create a systemd service for current user&lt;/h4&gt;
+&lt;p&gt;Follow the instruction &lt;a href="https://wiki.archlinux.org/index.php/Dropbox#Run_as_daemon_with_systemd"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I modified "After=xorg.target" to "After=local-fs.target network.target"
+"ExecStart=/home/your_user/.dropbox-dist/dropbox" to "ExecStart=/home/andy/bin/dropbox start". I think this will eliminate the need for starting graphical interface before starting dropbox.&lt;/p&gt;
+&lt;h3&gt;Automount&lt;/h3&gt;
+&lt;h3&gt;Mounting NTFS&lt;/h3&gt;
+&lt;p&gt;I got some error when trying to mount My Passport formated in NTFS. Apparently, Arch does not support NTFS out of the box&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sdb&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mnt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Passport&lt;/span&gt;
+&lt;span class="nl"&gt;mount:&lt;/span&gt; &lt;span class="n"&gt;wrong&lt;/span&gt; &lt;span class="n"&gt;fs&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bad&lt;/span&gt; &lt;span class="n"&gt;option&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bad&lt;/span&gt; &lt;span class="n"&gt;superblock&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sdb&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+   &lt;span class="n"&gt;missing&lt;/span&gt; &lt;span class="n"&gt;codepage&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;helper&lt;/span&gt; &lt;span class="n"&gt;program&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;other&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt;
+
+   &lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="n"&gt;some&lt;/span&gt; &lt;span class="n"&gt;cases&lt;/span&gt; &lt;span class="n"&gt;useful&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;found&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;syslog&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;try&lt;/span&gt;
+   &lt;span class="n"&gt;dmesg&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;tail&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;so&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I got the same error trying to force type with -t option. lsblk -f recognize the filesystem as NTFS. Of course I made the silly mistake of putting /dev/sdb instead of /dev/sdb1 too.&lt;/p&gt;
+&lt;h4&gt;Install ntfs-3g&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;ntfs&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now the mounting with command is successful.Apparently I did not safely close the passport on Windows.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;mount&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sdb1&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mnt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Passport&lt;/span&gt;
+
+&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;disk&lt;/span&gt; &lt;span class="n"&gt;contains&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;unclean&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;
+&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt; &lt;span class="n"&gt;wasn&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;safely&lt;/span&gt; &lt;span class="n"&gt;closed&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;Windows&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Fixing&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Audio&lt;/h3&gt;
+&lt;p&gt;I have to install alsa-util, pulseaudio, pavucontrol. After fiddling with pavucontrol to select the right output, got audio to work.&lt;/p&gt;
+&lt;h3&gt;udev(automatic mounting, battery)&lt;/h3&gt;
+&lt;p&gt;Built to systemctl by default in Arch&lt;/p&gt;
+&lt;h4&gt;Automount&lt;/h4&gt;
+&lt;p&gt;Install gvfs and polkit with authentication agent as mentioned &lt;a href="https://wiki.archlinux.org/index.php/Polkit#Authentication_agents"&gt;here&lt;/a&gt; (for mount without password)&lt;/p&gt;
+&lt;h2&gt;Appearance&lt;/h2&gt;
+&lt;h3&gt;Console font&lt;/h3&gt;
+&lt;p&gt;The console font was way too small for me. So I followed the instruction on arch wiki. This is a summary&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;terminus&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then change the font by change FONT variable in /etc/vconsole.conf(create if not exist)
+     FONT=ter-128b
+More terminus font can be found at /usr/share/fonts/local/ &lt;/p&gt;
+&lt;h2&gt;Application&lt;/h2&gt;
+&lt;p&gt;I am very nicely surprised that installing emacs24 go much smoother than in Debian. No adding third-party repo. And pacman rocks&lt;/p&gt;
+&lt;h3&gt;dmenu-xft(from AUR)&lt;/h3&gt;
+&lt;p&gt;Can also install dmenu in Official Repository but does not support xft font&lt;/p&gt;
+&lt;p&gt;Create a file in PATH named launch_dmenu with contents&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;   &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="o"&gt;!/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+   &lt;span class="n"&gt;exec&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dmenu_path&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;dmenu_run&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nb&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;#&lt;/span&gt;&lt;span class="mi"&gt;202930&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sb&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;#&lt;/span&gt;&lt;span class="mi"&gt;285481&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sf&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;#&lt;/span&gt;&lt;span class="n"&gt;FFFFFF&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fn&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Droid&lt;/span&gt; &lt;span class="n"&gt;Sans&lt;/span&gt; &lt;span class="n"&gt;Mono&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Using Droid Sans Georgian makes dmenu shows all boxes for some reasons&lt;/p&gt;
+&lt;h3&gt;Openbox or xfce&lt;/h3&gt;
+&lt;h4&gt;openbox&lt;/h4&gt;
+&lt;h5&gt;obconf, obmenu, conky, lxappearance&lt;/h5&gt;
+&lt;p&gt;In lxapperance I set default font to Droid Sans Georgian 16&lt;/p&gt;
+&lt;p&gt;In obconf set Theme to Artwiz-boxed; set font under Appearance to Droid Sans Georgian (bold/Italic depending item; window title 14, the rest 16)&lt;/p&gt;
+&lt;h5&gt;Desktop panel - tin2&lt;/h5&gt;
+&lt;p&gt;Start by running tin2&lt;/p&gt;
+&lt;p&gt;Add to ~/.config/openbox/autostart&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;tint2&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Create a keyboard shortcut entry in openbox ~/.config/openbox/rc.xml. If file does not exist, initialize the file with /etc/xdg/openbox. Add this entry under &lt;keyboard&gt; &lt;!-- Keybindings for running applications --&gt;. Google openbox keyboard for detail about binding.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;keybind&lt;/span&gt; &lt;span class="na"&gt;key=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;W-space&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;action&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;execute&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;execute&amp;gt;&lt;/span&gt;/home/andy/bin/launch_dmenu&lt;span class="nt"&gt;&amp;lt;/execute&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/action&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/keybind&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;xfce&lt;/h4&gt;
+&lt;p&gt;Keyboard shortcut can be bound  through xfce keyboard app.&lt;/p&gt;
+&lt;h3&gt;rsync, p7zip(for handling archive file) emacs thunar&lt;/h3&gt;
+&lt;h3&gt;flashplugin chromium firefox&lt;/h3&gt;
+&lt;p&gt;Even after installing flashplugin(need to login to openbox again), youtube plays in chromium but not firefox(give me error after 1-2 second of playing), google music stucks at 0 and pandora switches song continuously. I am guessing it has something to do with flash&lt;/p&gt;
+&lt;h3&gt;hal&lt;/h3&gt;
+&lt;p&gt;Installing hal-flash(smaller) only enable playing google play movie&lt;/p&gt;
+&lt;h3&gt;Dropbox&lt;/h3&gt;
+&lt;p&gt;I installed dropbox by downloading tar ball from here &lt;a href="https://aur.archlinux.org/packages/dropbox/"&gt;link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Then follow the isntruction for &lt;a href="https://wiki.archlinux.org/index.php/Arch_User_Repository#Installing_packages"&gt;installing package from AUR&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Do the same thing for thunar-dropbox for thunar support&lt;/p&gt;
+&lt;p&gt;I donwload the cli from &lt;a href="https://www.dropbox.com/download?dl=packages/dropbox.py"&gt;dropbox page&lt;/a&gt; since AUR is out-of-date. I put dropbox.py in my path. Then run to enable execute perm:&lt;/p&gt;
+&lt;p&gt;chmod +x dropbox.py&lt;/p&gt;
+&lt;p&gt;Arch apparently comes with python3 by default so I have to edit the shebang line in dropbox.py from "#!/usr/bin/python" to "#!/usr/bin/python2" and rename the file to dropbox for convenience. type dropbox will run ok at this point.&lt;/p&gt;
+&lt;p&gt;After this, i tried to type dropboxd in the terminal but nothing happens. I tried relogin to openbox but still nothing. So I try dropbox start and the login window finally popped up.&lt;/p&gt;
+&lt;h3&gt;git and openssh&lt;/h3&gt;
+&lt;p&gt;Use this &lt;a href="https://help.github.com/articles/set-up-git"&gt;guide&lt;/a&gt; to set up git&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;global&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Your Name Here&amp;quot;&lt;/span&gt;
+&lt;span class="cp"&gt;# Sets the default name for git to use when you commit&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;global&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;your_email@example.com&amp;quot;&lt;/span&gt;
+&lt;span class="cp"&gt;# Sets the default email for git to use when you commit&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;config&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;global&lt;/span&gt; &lt;span class="n"&gt;credential&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;helper&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;cache&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;timeout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3600&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="cp"&gt;# Set the cache to timeout after 1 hour (setting is in seconds)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Install openssh to set up &lt;a href="https://help.github.com/articles/generating-ssh-keys"&gt;ssh-key&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Installing lyx livetex-most&lt;/h3&gt;
+&lt;h3&gt;Java Intellij android-sdk android-skd-build-tools android-sdk-platform-tools&lt;/h3&gt;
+&lt;p&gt;All android stuffs can be found in AUR(this way it will take care of all 32bit dependency comparing to getting from Google directly)&lt;/p&gt;
+&lt;p&gt;Oracle java can be found in AUR (jdk)&lt;/p&gt;
+&lt;p&gt;After installing by following AUR wiki instruction(with makepkg -s and pacman -U), set java path by putting the following in .bashrc.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;  &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;JAVA_HOME&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;
+  &lt;span class="err"&gt;##&lt;/span&gt; &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;JAVA_HOME&lt;/span&gt; &lt;span class="n"&gt;JDK&lt;/span&gt; &lt;span class="err"&gt;##&lt;/span&gt;
+  &lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;JAVA_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/opt/java/&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Intellij is available in community repository(woo-hoo) and can be installed by installing. Somehow running idea.sh in dmenu does not do anything so I created a bash file named "idea" in my path.&lt;/p&gt;
+&lt;h3&gt;pdf reader&lt;/h3&gt;
+&lt;p&gt;I choose okular - hefty with KDE but still the best. It is kdegraphics-okular package in arch repository.&lt;/p&gt;
+&lt;h3&gt;libreoffice&lt;/h3&gt;
+&lt;h3&gt;yaourt (for easy access to AUR)&lt;/h3&gt;
+&lt;h3&gt;python3 pip pelican&lt;/h3&gt;
+&lt;p&gt;Install python-pip then follow instruction from here to &lt;a href="http://docs.getpelican.com/en/3.1.1/getting_started.html"&gt;install pelican&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Use pip to install markdown and virtualenvwrapper&lt;/p&gt;</summary></entry><entry><title>An Nguyen</title><link href="http://www.dephiros.com/posts/2014/01/an-nguyen/" rel="alternate"></link><updated>2014-01-21T00:00:00-08:00</updated><author><name>An Nguyen</name></author><id>tag:www.dephiros.com,2014-01-21:posts/2014/01/an-nguyen/</id><summary type="html">&lt;h2&gt;Education&lt;/h2&gt;
 &lt;h4&gt;California State University, East Bay – Computer Science, BA&lt;/h4&gt;
 &lt;p&gt;Expected Graduation Date: December 2014&lt;/p&gt;
 &lt;h4&gt;University of California, Berkeley – Chemical Engineering, BA&lt;/h4&gt;
