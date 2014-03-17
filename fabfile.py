@@ -15,6 +15,13 @@ except ImportError:
 
 
 # Get directory
+=======
+    from settings import OUTPUT_PATH
+    SETTINGS_FILE = "pelicanconf.py"
+
+
+# Get directories
+>>>>>>> master
 ABS_ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 ABS_SETTINGS_FILE = os.path.join(ABS_ROOT_DIR, SETTINGS_FILE)
 ABS_OUTPUT_PATH = os.path.join(ABS_ROOT_DIR, OUTPUT_PATH)
@@ -32,6 +39,13 @@ def generate(output=None):
 
 def destroy(output=None):
     """Destroy the pelican static site"""
+=======
+    local(cmd)
+
+
+def destroy(output=None):
+    """Destroys the pelican static site"""
+>>>>>>> master
 
     if not output:
         cmd = "rm -r {0}".format(os.path.join(ABS_ROOT_DIR, OUTPUT_PATH))
@@ -53,6 +67,14 @@ def git_change_branch(branch):
     """ Changes from one branch to other in a git repo"""
     local("git checkout {0}".format(branch))
 
+=======
+
+def git_change_branch(branch):
+    """Changes from one branch to other in a git repo"""
+    local("git checkout {0}".format(branch))
+
+
+>>>>>>> master
 def git_merge_branch(branch):
     """Merges a branch in other branch"""
     local("git merge {0}".format(branch))
